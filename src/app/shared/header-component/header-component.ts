@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../auth/auth-service';
 
@@ -10,6 +10,7 @@ import { AuthService } from '../../auth/auth-service';
 })
 export class HeaderComponent {
   userName = 'Amr Gamal'; // later get from JWT or API
+  darkModeOn = signal(false);
   constructor(
     private authService: AuthService,
     private router: Router,
@@ -22,5 +23,6 @@ export class HeaderComponent {
 
   toggleDarkMode() {
     document.documentElement.classList.toggle('dark');
+    this.darkModeOn.set(!this.darkModeOn());
   }
 }
