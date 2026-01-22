@@ -1,5 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from '../auth-service';
 
 @Component({
@@ -17,7 +18,10 @@ export class LoginComponent {
   isLoading = signal(false);
   showPassword = false;
 
-  constructor(private authService: AuthService) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+  ) {}
 
   togglePassword() {
     this.showPassword = !this.showPassword;
@@ -29,14 +33,12 @@ export class LoginComponent {
     }
 
     this.isLoading.set(true);
-
-    console.log('Login data:', this.model);
-
     this.authService.login(this.model.email, this.model.password).subscribe({
       next: (response) => {
-        console.log(response);
-        localStorage.setItem('token', (response as any).token);
         this.isLoading.set(false);
+        this.authService.saveToken((response as any).token);
+        this.router.navigate(['/home']);
+
         alert('Logged in successfully');
       },
       error: (error) => {

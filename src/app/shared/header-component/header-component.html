@@ -1,0 +1,33 @@
+<!-- Header -->
+<header class="bg-white dark:bg-gray-800 shadow">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+
+        <!-- Logo -->
+        <h1 class="text-xl font-bold text-blue-600 dark:text-blue-400">
+            DayOffMini
+        </h1>
+
+        <!-- Right Side -->
+        <div class="flex items-center gap-4">
+
+            <span class="text-sm text-gray-600 dark:text-gray-300">
+                Welcome, {{ userName }}
+            </span>
+
+            <!-- Logout Button -->
+            <button (click)="logout()" class="text-sm font-medium px-3 py-1.5 rounded-md border border-gray-300 dark:border-gray-600
+                 text-gray-600 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700
+                 hover:text-gray-800 dark:hover:text-white transition">
+                Logout
+            </button>
+
+            <!-- Dark Mode Toggle -->
+            <button (click)="toggleDarkMode()" class="text-sm font-medium px-3 py-1.5 rounded-md
+                 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200
+                 hover:bg-gray-300 dark:hover:bg-gray-600 transition">
+                Toggle Dark
+            </button>
+
+        </div>
+    </div>
+</header>

@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class AuthService {
   baseUrl = 'http://localhost:5176/api/Auth/';
+  private readonly TOKEN_KEY = 'auth_token';
 
   constructor(private http: HttpClient) {}
 
@@ -14,5 +15,17 @@ export class AuthService {
       email,
       password,
     });
+  }
+
+  isAuthenticated(): boolean {
+    return !!localStorage.getItem(this.TOKEN_KEY);
+  }
+
+  saveToken(token: string) {
+    localStorage.setItem(this.TOKEN_KEY, token);
+  }
+
+  logout() {
+    localStorage.removeItem(this.TOKEN_KEY);
   }
 }
