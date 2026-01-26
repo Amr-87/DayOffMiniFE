@@ -10,6 +10,9 @@ import { AuthService } from '../auth-service';
   styleUrl: './login-component.scss',
 })
 export class LoginComponent {
+  createCompanyAccount() {
+    throw new Error('Method not implemented.');
+  }
   model = {
     email: '',
     password: '',
