@@ -14,12 +14,12 @@
         <div class="flex items-center gap-2">
 
             <span class="text-xs text-gray-600 dark:text-gray-300 hidden sm:block">
-                Welcome, {{ userName }}
+                Welcome, {{ userName() }}
             </span>
 
             <button (click)="toggleDarkMode()" class="w-5 h-5 rounded-full border
                      border-gray-300 dark:border-gray-500
-                     bg-gray-800 dark:bg-yellow-200
+                     bg-gray-800 dark:bg-white
                      hover:scale-110 transition
                      focus:outline-none" aria-label="Toggle dark mode">
             </button>
