@@ -10,12 +10,6 @@ import { AuthService } from '../auth-service';
   styleUrl: './login-component.scss',
 })
 export class LoginComponent {
-  loginWithMicrosoft() {
-    throw new Error('Method not implemented.');
-  }
-  createCompanyAccount() {
-    throw new Error('Method not implemented.');
-  }
   model = {
     email: '',
     password: '',
